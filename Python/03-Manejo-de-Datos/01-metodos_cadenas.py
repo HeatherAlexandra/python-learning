@@ -1,121 +1,158 @@
 
-
-#? Formateo de cadenas con f-strings
-#siempre se escribe anteponiendo f o F 
-# antes de las comillas ("" o ''):
-#Las f-strings (f"") permiten insertar valores dentro de un string
-# ejemplo
-nombre = "Juan"
-edad = 20
-print(f"Hola, me llamo {nombre} y tengo {edad} años.")
-#Salida: Hola, me llamo Juan y tengo 20 años.
-#siempre se debe anteponer una f al inicio de las comillas dobles o simples
-#dentro de las llaves se pueden realizar operaciones
-print(f"El doble de mi edad es {edad*2}")
-#Salida: El doble de mi edad es 40
-#se pueden usar funciones
-print(f"Mi nombre en mayusculas es {nombre.upper()}")
-#Salida: Mi nombre en mayusculas es JUAN
-#se pueden usar expresiones
-print(f"El resultado de la suma es {10+5}")
-#Salida: El resultado de la suma es 15
-#se pueden usar diccionarios
-persona = {"nombre":"Juan","edad":20}
-print(f"Mi nombre es {persona['nombre']} y tengo {persona['edad']} años.")
-#Salida: Mi nombre es Juan y tengo 20 años.
-#se pueder formatear numeros
-numero = 10/3
-print(f"El resultado de la division es {numero:.2f}") #FLOAT
-#Salida: El resultado de la division es 3.33
-# la f al inicio de las comillas indica que es una f-string
-# la f al final de la llave indica que se va a formatear el valor
-# el : indica que se va a formatear
-# el .2f indica que se va a formatear a dos decimales
- 
-print(f"El resultado de la division es {numero:.2%}")
-#Salida: El resultado de la division es 333.33%
-# el % indica que se va a formatear a porcentaje
- 
-print(f"El resultado de la division es {numero:.2e}")
-#Salida: El resultado de la division es 3.33e+00
-# el e indica que se va a formatear a notacion cientifica
-
-print(f"El resultado de la division es {numero:.2g}")
-#Salida: El resultado de la division es 3.3
-# el g indica que se va a formatear a notacion general
-
-# o para alinear textos
-nombre = "Juan"
-edad = 20
-print(f"{nombre:<10} | {edad:>10}")
-#Salida: Juan       |         20
-# el < indica que se va a alinear a la izquierda
-# el 10 indica el ancho del texto
-# el > indica que se va a alinear a la derecha
-# si quieres centrar el texto se usa ^
-print(f"{nombre:^10} | {edad:^10}")
-#Salida:   Juan    |     20
-# el ^ indica que se va a centrar el texto
+#! METODOS DE CADENAS o STRINGS
+# Funciones aplicadas a objetos de tipo string
+# Pero que es un objeto? Un objeto es una instancia de una clase
+# y una clase es un molde para crear objetos
+# en python todo es un objeto, las variables, las funciones, los modulos, etc
 
 
-#*  METODOS DE CADENAS o STRINGS
-# los strings son inmutables, no se pueden modificar
+# *ESTRUCTURA
+# nombredelafuncion(parametros)
 
-#*Manipulacion de texto
-    # se pueden manipular los textos con metodos
-    # lower() convierte el texto a minusculas
-    # upper() convierte el texto a mayusculas
-texto = "Hola Mundo"
-print(texto.lower()) # hola mundo
-print(texto.upper()) # HOLA MUNDO
 
-    # capitalize() convierte la primera letra en mayuscula
-    # title() convierte la primera letra de cada palabra en mayuscula
-print(texto.capitalize()) # Hola mundo
-print(texto.title()) # Hola Mundo
+#! METODOS BASICOS DE CADENAS
+#*print() - Imprime un mensaje en la consola
+print("Hola Heather hermosa")
 
-    # swapcase() convierte las mayusculas en minusculas y viceversa
-print(texto.swapcase()) # hOLA mUNDO
+# Convierte todo el texto a mayúsculas
+texto = "hola mundo"
+print(texto.upper())  # HOLA MUNDO
 
-    # replace() reemplaza un texto por otro
-print(texto.replace("Mundo","Amigo")) # Hola Amigo
+# Convierte todo el texto a minúsculas
+print(texto.lower())  # hola mundo
 
-    # strip() elimina los espacios al inicio y al final
-    # lstrip() elimina los espacios al inicio
-    # rstrip() elimina los espacios al final
-texto = "    Te amo Heather   "
-print(texto.strip()) # "Te amo Heather"
-print(texto.lstrip()) # "Te amo Heather   "
-print(texto.rstrip()) # "    Te amo Heather"
+# Convierte la primera letra a mayúscula
+print(texto.capitalize())  # Hola mundo
 
-    # split() convierte el texto en una lista
-texto = "manzana,pera,naranja"# se puede especificar el separador O COMA
-print(texto.split(",")) # ['manzana', 'pera', 'naranja']
-texto = "manzana pera naranja" # si no se especifica el separador se usa el espacio
-print(texto.split()) # ['manzana', 'pera', 'naranja'] 
+# Convierte la primera letra de cada palabra a mayúscula
+print(texto.title())  # Hola Mundo
 
-    # join() convierte una lista en un texto
-frutas = ["manzana","pera","naranja"]
-print(",".join(frutas)) # manzana,pera,naranja
-print(" ".join(frutas)) # manzana pera naranja
-print("".join(frutas)) # manzanaperanaranja
+# Cambia las mayúsculas a minúsculas y viceversa
+print(texto.swapcase())  # HOLA MUNDO
 
-    # find() busca un texto en otro e index tiene la misma funcion
-cadena = "Hola dios"
+# Reemplaza una subcadena por otra
+print(texto.replace("mundo", "amigo"))  # hola amigo
+
+#!METDOS DE MANIPULACION DE ESPACIOS
+# Elimina los espacios en ambos extremos de la cadena
+texto = "   Hola Mundo   "
+print(texto.strip())  # Hola Mundo
+
+# Elimina los espacios a la izquierda de la cadena
+print(texto.lstrip())  # Hola Mundo   
+
+# Elimina los espacios a la derecha de la cadena
+print(texto.rstrip())  #    Hola Mundo
+
+#!METODOS DE BUSCA Y POSICIONAMIENTO
+# Encuentra la primera aparición de una subcadena y devuelve su índice
+cadena = "Hola Mundo"
 subcadena = "Mundo"
-print(cadena.find(subcadena)) #? -1 ya que no se encuentra
-subcadena = "dios"
-print(cadena.find(subcadena)) #? 5 ya que se encuentra en la posicion 5
-# que es posicion 5? Es la posicion donde comienza la subcadena
+print(cadena.find(subcadena))  # 5 (La posición donde empieza 'Mundo')
 
-    # count() cuenta cuantas veces aparece un texto
-cadena = "Hola mundo, hola dios, hola bombona, hola chiquita"
-subcadena = "hola"
-print(cadena.count(subcadena)) # 4 ya que aparece 4 veces
+# Si la subcadena no se encuentra, devuelve -1
+subcadena = "Python"
+print(cadena.find(subcadena))  # -1 (No se encuentra)
 
-    # startswith() verifica si el texto comienza con otro
-    # endswith() verifica si el texto termina con otro
-cadena = "Hola mundo"
-subcadena = "Hola"
-print(cadena.startswith(subcadena)) # True
-print(cadena.endswith(subcadena)) # False
+# Devuelve el índice de la subcadena, pero lanza un error si no se encuentra
+print(cadena.index(subcadena))  # Lanza un error, porque "Python" no existe
+# Si la subcadena si existe seria asi
+subcadena = "Mundo"
+print(cadena.index(subcadena))  # 5 (La posición donde empieza 'Mundo')
+#INDEX Y FIND devuelven la misma informacion, pero index lanza un error si no encuentra la subcadena
+
+# Cuenta cuántas veces aparece una subcadena en la cadena
+print(cadena.count("o"))  # 2 (La letra 'o' aparece dos veces)
+
+# Verifica si la cadena comienza con la subcadena indicada
+print(cadena.startswith("Hola"))  # True
+
+# Verifica si la cadena termina con la subcadena indicada
+print(cadena.endswith("Mundo"))  # True
+
+#!METODOS DE SEPARACION Y UNION
+# Divide una cadena en una lista usando un separador
+texto = "manzana,pera,naranja"
+print(texto.split(","))  # ['manzana', 'pera', 'naranja']
+
+# Si no se especifica un separador, se divide por los espacios
+texto = "manzana pera naranja"
+print(texto.split())  # ['manzana', 'pera', 'naranja']
+
+# Une una lista de cadenas en una sola cadena usando un separador
+frutas = ["manzana", "pera", "naranja"]
+print(",".join(frutas))  # manzana,pera,naranja
+print(" ".join(frutas))  # manzana pera naranja
+print("".join(frutas))   # manzanaperanaranja
+
+#! METODOS DE VERIFICACION
+# Verifica si todos los caracteres en la cadena son numéricos
+texto = "12345"
+print(texto.isnumeric())  # True
+
+# Verifica si todos los caracteres en la cadena son alfabéticos
+texto = "Hola"
+print(texto.isalpha())  # True
+
+# Verifica si la cadena tiene caracteres alfabéticos y numéricos
+texto = "Hola123"
+print(texto.isalnum())  # True
+
+# Verifica si la cadena contiene solo letras mayúsculas
+texto = "HOLA"
+print(texto.isupper())  # True
+
+# Verifica si la cadena contiene solo letras minúsculas
+texto = "hola"
+print(texto.islower())  # True
+
+# Verifica si la cadena es un espacio vacío
+texto = "   "
+print(texto.isspace())  # True
+
+
+
+#! METODOS DE FORMATEO DE CADENAS
+# Los f-strings son la mejor forma de concatenar strings
+# se pueden usar con comillas simples o dobles
+nombre ='Heaather'
+edad = 21
+print(f'Hola, me llamo{nombre} y mi edad es{edad} años')
+#Salida: Hola, me llamo Heather y mi edad es 21 años
+
+#    #*Se pueden usar:
+#    #? - Operaciones Matematicas:
+print(f'El doble de mi edad es {edad*2}')
+
+#    #? - Metodos de cadenas:
+print(f'Mi nombre en mayusculas es {nombre.upper()}')
+
+#    #? - Dicts o diccionarios:
+persona = {'nombre':'Heather','edad':21}
+print(f'Mi nombre es {persona['nombre']} y tengo {persona['edad']} años')
+
+#    #? - Formateo de numeros:
+numero = 10/3
+#        #*Formato a decimales
+print(f'El resultado de la division del numero es{numero:.2f}')
+#        Salida: El resultado de la division del numero es 3.33
+#        se pone : + . + el numero de decimales que se quiere + f
+#        #*Formato a porcentaje	
+print(f"El porcentaje es {numero:.2%}") 
+#        Salida: El porcentaje es 333.33%
+#        #*Formato a notacion cientifica
+print(f"El resultado de la division es {numero:.3e}")
+#        Salida: El resultado de la division es 3.333e+00
+print(f"El resultado de la division es {numero:.1e}")
+#        Salida: El resultado de la division es 3.3e+00
+#        
+
+
+
+
+
+
+
+
+
+

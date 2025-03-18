@@ -25,7 +25,8 @@ del a
 
 
 #*   LISTAS - list
-#Son colecciones ordenadas y mutables (modificables). Se definen con [].
+#Son colecciones #!ordenadas y mutables (modificables). 
+# Se definen con [].
 numeros = [1, 2, 3, 4, 5]
 
 numeros.append(6)       # Agrega un elemento al final
@@ -41,7 +42,8 @@ numeros[0] = 100        # Modifica el primer elemento
 
 
 #*   TUPLAS   - tuple
-#Son colecciones ordenadas pero inmutables (no se pueden modificar). Se definen con ().
+#Son colecciones ordenadas pero inmutables (#!no se pueden modificar).
+# # Se definen con ().
 coordenadas = (10, 20)
 print(coordenadas[0])  # Acceder al primer elemento
 
@@ -49,7 +51,9 @@ print(coordenadas[0])  # Acceder al primer elemento
 
 
 #*   DICCIONARIOS - dict
-# Son colecciones no ordenadas de clave-valor. Se definen con {}. Las claves deben ser únicas.
+# Son colecciones no ordenadas, de #!clave-valor. 
+# Se definen con {}. 
+# #!Las claves deben ser únicas.
 persona = {
     "nombre": "Juan",
     "edad"  : 20,
@@ -64,7 +68,8 @@ persona = {}                    # Vaciar el diccionario
 
 
 #*   CONJUNTOS - set
-# Son colecciones no ordenadas de elementos únicos. Se definen con {}.
+# Son colecciones#! no ordenadas de elementos únicos. 
+# Se definen con {}.
 colores = {"rojo", "verde", "azul"}
 colores.add("amarillo")  # Agregar un elemento
 colores.remove("verde")  # Eliminar un elemento

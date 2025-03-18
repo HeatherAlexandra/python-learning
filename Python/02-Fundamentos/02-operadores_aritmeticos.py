@@ -13,3 +13,5 @@ potencia = 2 ** 3  # 8
 #Diferencia entre / y //: 
 # La primera siempre devuelve float, 
 # la segunda trunca el resultado a entero.
+
+
